@@ -162,6 +162,52 @@
     </div>
 </section>
 
+<!-- Section 3: Para quem é -->
+<section id="para-quem" class="py-20 sm:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Headline -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                Essa mentoria é para quem quer usar IA de verdade
+            </h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+                Não é curso para assistir depois. É para quem quer sair com algo funcionando no mesmo dia.
+            </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Card: Empreendedores -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Empreendedores</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Quer organizar agenda, tarefas e pequenas operações sem depender de equipe grande.</p>
+            </div>
+
+            <!-- Card: Freelancers -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="text-4xl mb-4">💼</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Freelancers</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Quer reduzir bagunça, ganhar tempo e automatizar partes repetitivas do trabalho.</p>
+            </div>
+
+            <!-- Card: Criadores de Conteúdo -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="text-4xl mb-4">🎥</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Criadores de Conteúdo</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Quer usar IA como apoio real na rotina criativa, nas ideias e na execução.</p>
+            </div>
+
+            <!-- Card: Não técnicos -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="text-4xl mb-4">🧩</div>
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Não técnicos</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Quer finalmente usar IA com estrutura, sem ficar perdido em tutoriais e ferramentas soltas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Remaining sections -->
 
 </body>
