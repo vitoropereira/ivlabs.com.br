@@ -75,5 +75,68 @@
     </div>
 </nav>
 
+<!-- Section 1: Hero -->
+<section id="inicio" class="relative bg-[#0b1120] py-24 sm:py-28 overflow-hidden">
+    <!-- Glow orb -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-500/20 to-purple-600/20 blur-[100px] pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/5 border border-white/10 rounded-full text-blue-300 text-sm">
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+            Próxima turma em breve &bull; Vagas limitadas
+        </div>
+
+        <!-- H1 -->
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6">
+            Saia com seu<br>
+            <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">assistente de IA</span><br>
+            funcionando no celular.
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Em 1 sábado, você configura seu próprio agente de IA no Telegram — conectado à sua agenda, suas tarefas e sua rotina. Sem precisar programar.
+        </p>
+
+        <!-- Email Capture Form -->
+        <form id="hero-form" onsubmit="return handleFormSubmit(event, this)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-10">
+            <input
+                type="email"
+                name="email"
+                placeholder="seu@email.com"
+                required
+                class="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            >
+            <button
+                type="submit"
+                class="px-6 py-3.5 rounded-full font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg whitespace-nowrap"
+            >
+                Entrar na lista
+            </button>
+        </form>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap justify-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-400 text-xs">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Sem código
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-400 text-xs">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Funciona no Telegram
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-400 text-xs">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Resultado no mesmo dia
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-400 text-xs">
+                <svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                + 2 follow-ups
+            </span>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
