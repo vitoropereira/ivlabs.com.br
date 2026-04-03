@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentoria OpenClaw 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #f9fafb;
+      color: #111827;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #f3f4f6; }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .modal-hidden {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    .modal-active {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-gray-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex-shrink-0 flex items-center font-extrabold text-2xl tracking-tight text-gray-900">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mr-1">✦</span>
+          OpenClaw<span class="font-light text-gray-500 ml-1">Mentoria</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+          <a href="#inicio" class="hover:text-blue-600 transition-colors">Início</a>
+          <a href="#para-quem" class="hover:text-blue-600 transition-colors">Para quem é</a>
+          <a href="#como-funciona" class="hover:text-blue-600 transition-colors">Como funciona</a>
+          <a href="#mentor" class="hover:text-blue-600 transition-colors">Mentor</a>
+          <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+        </div>
+
+        <div>
+          <a href="#cta-final" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-bold hover:shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-0.5 transition-all">
+            Quero participar
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="bg-[#0b1120] text-white py-28 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-gradient-to-b from-blue-500/20 to-purple-600/20 blur-[100px] rounded-full pointer-events-none" aria-hidden="true"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-sm font-medium mb-8 backdrop-blur-sm text-blue-300">
+        <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        Mentoria prática • zero técnico • resultado no mesmo sábado
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05]">
+        Saia com seu <br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+          assistente de IA
+        </span>
+        <br />
+        funcionando no seu celular.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto font-light">
+        Em 1 sábado, você configura seu próprio assistente de IA pessoal no Telegram,
+        conectado à sua rotina, à sua agenda e às suas tarefas — mesmo sem ser técnico.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-5 mb-10">
+        <a href="#cta-final" class="bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl transform hover:-translate-y-1">
+          Quero montar meu assistente
+        </a>
+        <a href="#como-funciona" class="px-8 py-4 rounded-full font-bold text-lg border border-gray-600 text-white hover:bg-white/5 transition-all backdrop-blur-sm">
+          Ver como funciona
+        </a>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 text-sm text-gray-300">
+        <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2">Sem precisar programar</span>
+        <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2">Funciona no Telegram</span>
+        <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2">2 encontros de follow-up</span>
+        <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2">Você sai com algo real no ar</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PARA QUEM É -->
+  <section id="para-quem" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          Essa mentoria é para quem quer usar IA de verdade no dia a dia
+        </h2>
+        <p class="text-gray-500 text-lg leading-relaxed">
+          Não é para quem quer só “testar ferramenta”.
+          É para quem quer colocar um assistente funcional para trabalhar junto com a rotina real.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">📈</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Empreendedores</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Para quem quer organizar agenda, tarefas, relatórios e pequenas operações sem depender de equipe grande.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">💼</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Freelancers</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Para quem quer reduzir bagunça, ganhar tempo e automatizar partes repetitivas do trabalho.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">🎥</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Criadores de Conteúdo</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Para quem quer usar IA como apoio real na rotina, nas ideias e na execução.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">🧩</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Não técnicos</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Para quem quer finalmente usar IA com estrutura, sem ficar perdido em tutoriais e ferramentas soltas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADO FINAL -->
+  <section class="py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          No final do sábado, você já sai com isso funcionando
+        </h2>
+        <p class="text-gray-500 text-lg leading-relaxed">
+          Nada de curso para assistir depois.
+          A proposta aqui é sair com algo real rodando.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-2xl mb-4">🤖</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Seu agente rodando</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Seu assistente de IA configurado em uma VPS própria, pronto para operar de forma contínua.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-2xl mb-4">📲</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Telegram conectado</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Você conversa com seu agente diretamente pelo celular, de forma simples e prática.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-2xl mb-4">📅</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Agenda integrada</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Seu assistente passa a enxergar sua rotina e te ajudar com contexto real.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-2xl mb-4">⚙️</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">1 automação funcionando</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Você sai com pelo menos uma automação prática rodando no seu contexto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE TRAVA -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          O que normalmente trava quem tenta fazer isso sozinho
+        </h2>
+        <p class="text-gray-500 text-lg leading-relaxed">
+          O problema quase nunca é “falta de vontade”.
+          O problema é falta de direção, sequência e acompanhamento.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Muito conteúdo, pouca direção</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Você vê vídeo, tutorial, thread e ferramenta… mas continua sem colocar algo funcional no ar.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Medo de quebrar tudo</h3>
+          <p class="text-gray-500 leading-relaxed">
+            VPS, bot, agenda, cron, integração… parece muita coisa quando você tenta sozinho.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">IA sem utilidade prática</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Muita gente testa IA, mas não transforma isso em algo realmente útil no trabalho.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Falta de acompanhamento</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Você até começa, mas trava nos detalhes e perde o ritmo antes de terminar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-14 text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          Como a mentoria funciona
+        </h2>
+        <p class="text-gray-500 text-lg">
+          Você entra no sábado para montar seu assistente e continua refinando nas 2 semanas seguintes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="modules-grid"></div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section class="py-24 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          O que seu assistente pode fazer na prática
+        </h2>
+        <p class="text-gray-500 text-lg leading-relaxed">
+          O objetivo não é só “ter IA”.
+          É fazer ela te ajudar em rotinas reais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">🌅</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Briefing diário</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Receber um resumo útil da sua agenda, tarefas e prioridades logo cedo.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">📝</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Relatório semanal</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Ter visão organizada do que aconteceu, do que ficou pendente e do que precisa de atenção.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">🚨</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Monitoramento proativo</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Seu agente pode acompanhar rotinas e avisar quando algo importante sair do esperado.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <div class="text-3xl mb-5">🧠</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Organização da operação</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Usar IA para apoiar pequenas rotinas do seu negócio com menos improviso.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÃO PRECISA SER TÉCNICO -->
+  <section class="py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-indigo-900 to-gray-900 rounded-[2rem] p-10 md:p-14 text-center shadow-2xl relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 relative z-10 tracking-tight">
+          Você não precisa saber programar
+        </h2>
+
+        <p class="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed relative z-10 font-light mb-8">
+          Essa mentoria foi desenhada para profissionais não técnicos.
+          Você só precisa do básico para entrar — o resto a gente constrói junto.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 relative z-10">
+          <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white">Notebook com internet</span>
+          <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white">Conta no Telegram</span>
+          <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white">Conta Google</span>
+          <span class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white">Vontade de colocar no ar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTOR -->
+  <section id="mentor" class="py-24 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="bg-gray-50 rounded-[2rem] p-10 border border-gray-100 shadow-sm">
+          <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Seu mentor
+          </div>
+
+          <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            Victor Pereira
+          </h2>
+
+          <p class="text-lg text-gray-500 leading-relaxed mb-8">
+            Especialista em automações, integrações e implementação prática de soluções com IA.
+          </p>
+
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Essa mentoria não foi criada para impressionar com jargão técnico.
+            Ela foi criada para pegar alguém que quer usar IA de forma séria —
+            e colocar isso de pé com clareza, estrutura e acompanhamento.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">✦</span>
+              <p class="text-gray-700">Mais de 10 anos construindo soluções digitais</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">✦</span>
+              <p class="text-gray-700">Experiência prática com automações e integrações reais</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">✦</span>
+              <p class="text-gray-700">Foco em aplicação funcional, não teoria bonita</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Suporte técnico ao vivo</h3>
+            <p class="text-gray-500 leading-relaxed">
+              Durante a mentoria, o Isaque entra como apoio técnico para ajudar a turma a destravar setup, resolver travas e manter a execução fluindo.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] p-8 text-white shadow-xl">
+            <h3 class="text-2xl font-bold mb-4">O foco aqui é simples:</h3>
+            <p class="text-white/90 leading-relaxed text-lg">
+              Você não sair dizendo “entendi a ideia”.
+              Você sair dizendo:
+              <strong>“está funcionando no meu celular.”</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+          Perguntas frequentes
+        </h2>
+        <p class="text-gray-500 text-lg">
+          O que normalmente as pessoas querem saber antes de entrar.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Preciso saber programar?</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Não. A mentoria foi desenhada justamente para pessoas não técnicas.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Eu saio com algo funcionando mesmo?</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Sim. A proposta é que você termine o sábado com seu assistente já rodando e conectado ao seu fluxo principal.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Isso serve só para quem tem empresa?</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Não. Serve também para freelancers, criadores de conteúdo e pessoas que querem produtividade pessoal.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">E se eu travar depois?</h3>
+          <p class="text-gray-500 leading-relaxed">
+            Você ainda terá 2 encontros de follow-up para corrigir, ajustar e evoluir o que foi montado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final" class="py-24 bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-[#0b1120] rounded-[2rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[400px] bg-gradient-to-b from-blue-500/20 to-purple-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">
+            Se você quer parar de só testar IA
+            <br />
+            e começar a usar IA de verdade,
+            <br />
+            essa mentoria é para você.
+          </h2>
+
+          <p class="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed mb-10">
+            Em vez de continuar perdido entre ferramentas, prompts e tutoriais,
+            você sai com um assistente funcional no seu celular e um caminho claro para evoluir isso nas semanas seguintes.
+          </p>
+
+          <a href="#" class="inline-flex bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl transform hover:-translate-y-1">
+            Quero participar da próxima turma
+          </a>
+
+          <p class="text-sm text-gray-400 mt-6">
+            Vagas limitadas por turma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white pt-20 pb-10 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+        <div>
+          <div class="flex items-center font-extrabold text-2xl tracking-tight text-gray-900 mb-6">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mr-2">✦</span>
+            OpenClaw Mentoria
+          </div>
+          <p class="text-gray-500 mb-8 max-w-sm leading-relaxed">
+            Mentoria prática para você sair com um assistente de IA funcionando no seu celular — sem depender de conhecimento técnico avançado.
+          </p>
+          <div class="flex space-x-6 text-sm font-semibold">
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Instagram</a>
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">LinkedIn</a>
+            <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-8 rounded-[2rem] border border-gray-100 text-center md:text-left">
+          <h5 class="text-gray-900 font-bold mb-3 text-xl">Pronto para montar o seu?</h5>
+          <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+            Entre para a próxima turma e saia com seu assistente de IA funcionando de verdade.
+          </p>
+          <a href="#" class="inline-flex w-full sm:w-auto justify-center bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg">
+            Quero participar
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <p>&copy; 2026 Mentoria OpenClaw. Todos os direitos reservados.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-gray-600 transition-colors">Termos</a>
+          <a href="#" class="hover:text-gray-600 transition-colors">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="module-modal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 transition-all duration-300">
+    <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+
+    <div id="modal-panel" class="bg-white rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 transform transition-transform scale-95 origin-center border border-gray-100">
+      <button id="close-modal" class="absolute top-6 right-6 w-10 h-10 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center hover:bg-gray-200 hover:text-gray-900 transition-colors focus:outline-none">
+        <span class="text-xl leading-none">&times;</span>
+      </button>
+
+      <div id="modal-content" class="p-8 md:p-12"></div>
+    </div>
+  </div>
+
+  <script>
+    const modulesData = [
+      {
+        id: 1,
+        title: "Bloco 1 — Seu Agente Nasceu",
+        subtitle: "Você sobe a base do seu assistente",
+        icon: "🤖",
+        time: "50 min",
+        description: "Nesse primeiro bloco, você cria a base do seu agente, entende como ele funciona e já sai com a estrutura principal configurada.",
+        topics: [
+          "Entender a lógica do agente",
+          "Subir a base do ambiente",
+          "Definir identidade inicial",
+          "Sair com o agente rodando"
+        ]
+      },
+      {
+        id: 2,
+        title: "Bloco 2 — Conectando ao Mundo",
+        subtitle: "Telegram + Google Agenda",
+        icon: "📲",
+        time: "50 min",
+        description: "Agora seu assistente deixa de ser só uma ideia e passa a se conectar com ferramentas reais do seu dia a dia.",
+        topics: [
+          "Conectar ao Telegram",
+          "Integrar Google Agenda",
+          "Testar comandos reais",
+          "Dar contexto prático ao agente"
+        ]
+      },
+      {
+        id: 3,
+        title: "Bloco 3 — Automatizando Seu Negócio",
+        subtitle: "Colocando uma rotina útil para funcionar",
+        icon: "⚙️",
+        time: "50 min",
+        description: "Aqui a IA começa a virar utilidade real: você monta uma automação prática baseada na sua rotina.",
+        topics: [
+          "Escolher uma automação útil",
+          "Criar rotina automática",
+          "Ativar cron / recorrência",
+          "Fazer a IA trabalhar por você"
+        ]
+      },
+      {
+        id: 4,
+        title: "Bloco 4 — Blindando e Planejando",
+        subtitle: "Estabilidade, ajustes e próximos passos",
+        icon: "🛡️",
+        time: "30 min",
+        description: "Você aprende a manter o agente estável, evitar travas comuns e sair com um plano claro de evolução.",
+        topics: [
+          "Corrigir pontos frágeis",
+          "Entender watchdog e estabilidade",
+          "Fazer debug básico",
+          "Sair com plano de evolução"
+        ]
+      },
+      {
+        id: 5,
+        title: "Follow-up 1",
+        subtitle: "Refinando a primeira semana real",
+        icon: "🔁",
+        time: "40 min",
+        description: "Depois da implementação, esse encontro serve para corrigir, otimizar e destravar o que aparecer no uso real.",
+        topics: [
+          "Ajustar erros do uso real",
+          "Otimizar respostas",
+          "Melhorar automações",
+          "Refinar o fluxo principal"
+        ]
+      },
+      {
+        id: 6,
+        title: "Follow-up 2",
+        subtitle: "Consolidando os primeiros resultados",
+        icon: "📈",
+        time: "40 min",
+        description: "Fechamos o ciclo consolidando o que já está funcionando e mostrando como transformar isso em algo ainda mais útil.",
+        topics: [
+          "Consolidar aprendizados",
+          "Melhorar uso prático",
+          "Pensar expansão",
+          "Ganhar visão de longo prazo"
+        ]
+      }
+    ];
+
+    const grid = document.getElementById('modules-grid');
+    const modal = document.getElementById('module-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalPanel = document.getElementById('modal-panel');
+
+    function renderModules() {
+      grid.innerHTML = '';
+
+      modulesData.forEach(module => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full group";
+        card.onclick = () => openModal(module.id);
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-6">
+            <div class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl group-hover:bg-blue-50 transition-colors">
+              ${module.icon}
+            </div>
+            <span class="text-[11px] uppercase tracking-wider font-bold text-gray-500 bg-gray-50 px-3 py-1 rounded-full">${module.time}</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">${module.title}</h3>
+          <p class="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">${module.subtitle}</p>
+          <p class="text-sm text-gray-500 leading-relaxed mb-8 flex-grow font-light">${module.description}</p>
+          <div class="mt-auto pt-5 border-t border-gray-100 flex justify-between items-center text-sm">
+            <span class="text-gray-400 font-medium text-xs">Clique para ver mais</span>
+            <span class="text-blue-600 font-bold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">Explorar →</span>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function openModal(moduleId) {
+      const module = modulesData.find(m => m.id === moduleId);
+      if (!module) return;
+
+      const topicsHtml = module.topics.map(topic =>
+        `<li class="flex items-start mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100">
+          <span class="text-blue-600 mr-3 mt-0.5 text-lg leading-none">✦</span>
+          <span class="text-gray-700 font-medium text-sm">${topic}</span>
+        </li>`
+      ).join('');
+
+      modalContent.innerHTML = `
+        <div class="mb-8 text-center sm:text-left">
+          <div class="inline-block text-sm uppercase tracking-widest font-bold text-gray-400 mb-3">${module.time}</div>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-2">${module.title}</h2>
+          <p class="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">${module.subtitle}</p>
+        </div>
+
+        <div class="mb-10 text-gray-600 leading-relaxed font-light text-lg">
+          ${module.description}
+        </div>
+
+        <div class="mb-10">
+          <h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+            <span class="text-blue-500">🎯</span> O que você vai fazer nesse bloco
+          </h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${topicsHtml}
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-[2rem] p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm">
+          <div class="mb-6 sm:mb-0 text-center sm:text-left">
+            <span class="block text-xs uppercase tracking-wider font-bold text-gray-400 mb-1">Duração</span>
+            <span class="block text-xl font-bold text-gray-900">${module.time}</span>
+          </div>
+          <a href="#cta-final" onclick="closeModal()" class="bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-600 transition-colors w-full sm:w-auto text-center shadow-md hover:shadow-xl transform hover:-translate-y-0.5">
+            Quero participar
+          </a>
+        </div>
+      `;
+
+      modal.classList.remove('modal-hidden');
+      modal.classList.add('modal-active');
+
+      setTimeout(() => {
+        modalPanel.classList.remove('scale-95');
+        modalPanel.classList.add('scale-100');
+      }, 10);
+
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalPanel.classList.remove('scale-100');
+      modalPanel.classList.add('scale-95');
+
+      setTimeout(() => {
+        modal.classList.add('modal-hidden');
+        modal.classList.remove('modal-active');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('modal-active')) {
+        closeModal();
+      }
+    });
+
+    renderModules();
+  </script>
+</body>
+</html>

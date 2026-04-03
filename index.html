@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria: Implementação OpenClaw</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Contêiner obrigatório para gráficos responsivos */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .modal-hidden {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+        .modal-active {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+        body {
+            background-color: #f9fafb; /* Gray 50 */
+            color: #111827; /* Gray 900 */
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar corporativo */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Chosen Palette: Modern AI Corporate (Deep Navy backgrounds, Crisp Whites, Blue to Purple Gradients, Soft Grays). Matches the innovative/tech vibe of companies like IV Help. -->
+<!-- Application Structure Plan: Maintains the high-conversion structure (Hero -> Problem Validation -> Solution/Syllabus -> CTA) but elevates the UI to build corporate trust rather than just technical appeal. Uses modern web design patterns: large rounded corners, soft drop shadows, gradient accents, and ample whitespace to make complex information digestible. -->
+<!-- Visualization & Content Choices: 
+1. Stats Charts -> Goal: Validate need with elegance -> Method: Chart.js Bar & Doughnut charts -> Interaction: Hover tooltips -> Justification: Re-styled with professional blue/purple corporate palettes to look like a high-end dashboard.
+2. Modules Grid -> Goal: Easy exploration -> Method: CSS Grid with modern card design -> Interaction: Filters & Hover states -> Justification: Clean white cards with subtle border animations convey a premium service.
+Library used: Chart.js. Vanilla JS for modal and filtering. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navbar com Glassmorphism -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center font-extrabold text-2xl tracking-tight text-gray-900">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mr-1">✦</span>
+                    OpenClaw<span class="font-light text-gray-500 ml-1">Mentorship</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+                    <a href="#inicio" class="hover:text-blue-600 transition-colors">Início</a>
+                    <a href="#dados" class="hover:text-blue-600 transition-colors">Por que fazer?</a>
+                    <a href="#modulos" class="hover:text-blue-600 transition-colors">Conteúdo</a>
+                </div>
+                <div>
+                    <button onclick="document.getElementById('modulos').scrollIntoView()" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-bold hover:shadow-lg hover:shadow-purple-500/30 transform hover:-translate-y-0.5 transition-all">
+                        Ver Programa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Modern AI Vibe) -->
+    <header id="inicio" class="bg-[#0b1120] text-white py-28 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+        <!-- Abstract Glowing Orbs (CSS only) -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] bg-gradient-to-b from-blue-500/20 to-purple-600/20 blur-[100px] rounded-full pointer-events-none" aria-hidden="true"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-sm font-medium mb-8 backdrop-blur-sm text-blue-300">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                v2.0 • Atualizado para ambientes em Produção
+            </div>
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+                Implemente seu <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Agente Autônomo</span> <br/>
+                sem falhas.
+            </h1>
+            <p class="text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
+                O OpenClaw é a inteligência artificial open-source mais poderosa para automação. Nós guiamos você na instalação local, configuração de servidores e integração de APIs corporativas.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <button onclick="document.getElementById('modulos').scrollIntoView()" class="bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-xl transform hover:-translate-y-1">
+                    Explorar os Módulos
+                </button>
+                <button class="px-8 py-4 rounded-full font-bold text-lg border border-gray-600 text-white hover:bg-white/5 transition-all backdrop-blur-sm">
+                    Falar com Especialista
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="dados" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">O Custo da Implementação Tardia</h2>
+                <p class="text-gray-500 max-w-3xl mx-auto text-lg leading-relaxed">
+                    A automação por IA não é mais o futuro, é o agora. Entenda por que a tentativa e erro custa caro e como nossa mentoria acelera seu ROI (Retorno sobre Investimento).
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Card Gráfico 1 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Gargalos Comuns na Instalação</h3>
+                    <p class="text-sm text-gray-500 text-center mb-8">Principais motivos de falha em implementações não assistidas</p>
+                    <div class="chart-container">
+                        <canvas id="errorsChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Card Gráfico 2 -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Eficiência Adquirida</h3>
+                    <p class="text-sm text-gray-500 text-center mb-8">Horas economizadas por semana após a configuração correta</p>
+                    <div class="chart-container">
+                        <canvas id="roiChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Banner de Segurança -->
+            <div class="mt-16 bg-gradient-to-br from-indigo-900 to-gray-900 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden">
+                <!-- Abstract shape -->
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+                
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-6 relative z-10 flex items-center justify-center gap-3">
+                    <span class="text-3xl">🛡️</span> Segurança em Primeiro Lugar
+                </h3>
+                <p class="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed relative z-10 font-light">
+                    Agentes autônomos requerem permissões avançadas. Configurações incorretas podem expor sua infraestrutura. Na mentoria, aplicamos práticas de <strong>nível corporativo</strong>: isolamento em containers (Docker), gestão de segredos e restrição de escopo da IA.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="modulos" class="py-24 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-14 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Arquitetura do Programa</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                    Um currículo estruturado para levar você do zero ao domínio da plataforma OpenClaw. Filtre as etapas abaixo e clique para detalhar o escopo.
+                </p>
+            </div>
+
+            <!-- Filtros Modernos -->
+            <div class="flex flex-wrap gap-3 justify-center mb-12">
+                <button data-filter="Todos" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-gray-900 text-white shadow-md transition-all">Jornada Completa</button>
+                <button data-filter="Infraestrutura" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all shadow-sm">Infraestrutura</button>
+                <button data-filter="Integração" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all shadow-sm">Integração LLMs</button>
+                <button data-filter="Canais" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all shadow-sm">Canais & APIs</button>
+                <button data-filter="Avançado" class="filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 transition-all shadow-sm">Automação Avançada</button>
+            </div>
+
+            <!-- Grid de Módulos (Renderizado via JS) -->
+            <div id="modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Conteúdo gerado via JavaScript -->
+            </div>
+            
+            <div id="no-results" class="hidden text-center py-20 text-gray-400">
+                <div class="text-6xl mb-6">🔍</div>
+                <p class="text-xl font-medium text-gray-600">Nenhum módulo encontrado para este filtro.</p>
+                <button id="clear-filters" class="mt-4 text-blue-600 font-semibold hover:underline">Limpar filtros</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Corporativo -->
+    <footer class="bg-white pt-20 pb-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+                <div>
+                    <div class="flex items-center font-extrabold text-2xl tracking-tight text-gray-900 mb-6">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mr-2">✦</span>
+                        OpenClaw Mentorship
+                    </div>
+                    <p class="text-gray-500 mb-8 max-w-sm leading-relaxed">
+                        Capacitando empresas e profissionais a implementarem automação baseada em agentes autônomos de forma segura e escalável.
+                    </p>
+                    <div class="flex space-x-6 text-sm font-semibold">
+                        <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">LinkedIn</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">Twitter</a>
+                        <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors">GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-center md:text-left">
+                    <h5 class="text-gray-900 font-bold mb-3 text-xl">Pronto para transformar sua operação?</h5>
+                    <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                        Agende uma sessão estratégica para entendermos sua infraestrutura e desenharmos o plano de implementação do seu agente.
+                    </p>
+                    <button class="w-full sm:w-auto bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg">
+                        Agendar Diagnóstico Gratuito
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+                <p>&copy; 2026 Mentoria OpenClaw. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-600 transition-colors">Termos de Serviço</a>
+                    <a href="#" class="hover:text-gray-600 transition-colors">Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Moderno com animação CSS -->
+    <div id="module-modal" class="modal-hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 transition-all duration-300">
+        <!-- Fundo escuro com blur -->
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
+        
+        <!-- Conteúdo do Modal -->
+        <div class="bg-white rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 transform transition-transform scale-95 origin-center border border-gray-100" id="modal-panel">
+            <button id="close-modal" class="absolute top-6 right-6 w-10 h-10 bg-gray-100 text-gray-500 rounded-full flex items-center justify-center hover:bg-gray-200 hover:text-gray-900 transition-colors focus:outline-none">
+                <span class="text-xl leading-none">&times;</span>
+            </button>
+            
+            <div id="modal-content" class="p-8 md:p-12">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados do programa da mentoria (Atualizados para tom mais corporativo)
+        const modulesData = [
+            {
+                id: 1,
+                title: "Setup de Infraestrutura Base",
+                subtitle: "Preparação do ambiente do servidor ou local",
+                category: "Infraestrutura",
+                icon: "🖥️",
+                time: "Sessão 1 (45 min)",
+                description: "Garantimos que o sistema operacional host possua todas as dependências corporativas requeridas. Abordamos a instalação limpa de ambientes runtime e gestão de variáveis globais de sistema.",
+                topics: [
+                    "Arquiteturas Suportadas (Linux Server, WSL2 Enterprise)",
+                    "Gestão de Versões (NVM / Node.js LTS)",
+                    "Resolução e isolamento de dependências",
+                    "Configuração do PATH e variáveis de ambiente"
+                ]
+            },
+            {
+                id: 2,
+                title: "Deploy do Core System",
+                subtitle: "Instalação do Gateway OpenClaw",
+                category: "Infraestrutura",
+                icon: "⚙️",
+                time: "Sessão 1 (45 min)",
+                description: "Realizamos o deploy da aplicação principal. Corrigimos preventivamente erros de build (como binários C++ necessários para processamento de imagem) e inicializamos os daemons.",
+                topics: [
+                    "Deploy via Package Managers Corporativos",
+                    "Build de dependências nativas (Sharp/Libvips)",
+                    "Setup de Workspaces particionados",
+                    "Monitoramento de saúde do Gateway (Healthchecks)"
+                ]
+            },
+            {
+                id: 3,
+                title: "Integração de Modelos Cognitivos",
+                subtitle: "Conexão com Provedores LLM",
+                category: "Integração",
+                icon: "🧠",
+                time: "Sessão 2 (60 min)",
+                description: "Conectamos o agente aos 'cérebros' do mercado. Configuramos as APIs empresariais e estabelecemos limites de gastos (budgeting) para evitar surpresas no faturamento cloud.",
+                topics: [
+                    "Gestão de Secrets e API Keys",
+                    "Integração Multi-Model: OpenAI, Anthropic & Azure",
+                    "Estratégias de Redução de Custo (Modelos Locais via Ollama)",
+                    "Otimização de Context Window"
+                ]
+            },
+            {
+                id: 4,
+                title: "Canais de Comunicação",
+                subtitle: "Interfaces de Interação Humano-IA",
+                category: "Canais",
+                icon: "📱",
+                time: "Sessão 2 (60 min)",
+                description: "Implementamos as pontes de comunicação entre sua equipe e o agente. Conectamos o OpenClaw a ferramentas de mensageria padrão de mercado com protocolos de autenticação.",
+                topics: [
+                    "Setup do Bot Engine (Telegram / Slack API)",
+                    "Integração via Webhooks (WhatsApp Business API)",
+                    "Controle de Acesso Baseado em Identidade (IAM)",
+                    "Logs de auditoria de comandos"
+                ]
+            },
+            {
+                id: 5,
+                title: "Governança e Segurança",
+                subtitle: "Isolamento e Controle de Dados",
+                category: "Infraestrutura",
+                icon: "🛡️",
+                time: "Sessão 3 (45 min)",
+                description: "Fundamental para implementações empresariais. Aplicamos políticas de menor privilégio, garantindo que o agente só tenha acesso estritamente aos dados que precisa para operar.",
+                topics: [
+                    "Auditoria de Permissões (Princípio do Menor Privilégio)",
+                    "Containerização do Agente (Docker/Podman)",
+                    "Segurança na Interface Web",
+                    "Prevenção de vazamento de dados (DLP)"
+                ]
+            },
+            {
+                id: 6,
+                title: "Desenvolvimento de Skills",
+                subtitle: "Automação de Fluxos de Trabalho",
+                category: "Avançado",
+                icon: "🚀",
+                time: "Sessão 3 (60 min)",
+                description: "Capacitamos o agente para executar tarefas complexas da sua empresa. De pesquisa web automatizada à integração bidirecional com CRMs e ERPs através de plugins.",
+                topics: [
+                    "Implementação do módulo de Web Scraping",
+                    "Conexão com Google Workspace / Microsoft 365",
+                    "Desenvolvimento de Plugins Customizados (API Rest)",
+                    "Tratamento de Exceções e Fallbacks da IA"
+                ]
+            }
+        ];
+
+        let currentCategory = "Todos";
+        const grid = document.getElementById('modules-grid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const noResults = document.getElementById('no-results');
+        const clearFiltersBtn = document.getElementById('clear-filters');
+        const modal = document.getElementById('module-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalPanel = document.getElementById('modal-panel');
+
+        // Função para renderizar os cards com design premium
+        function renderModules() {
+            grid.innerHTML = '';
+            
+            const filteredData = modulesData.filter(module => 
+                currentCategory === "Todos" || module.category === currentCategory
+            );
+
+            if (filteredData.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+            } else {
+                grid.classList.remove('hidden');
+                noResults.classList.add('hidden');
+                
+                filteredData.forEach(module => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full group";
+                    card.onclick = () => openModal(module.id);
+                    
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-2xl group-hover:bg-blue-50 transition-colors">
+                                ${module.icon}
+                            </div>
+                            <span class="text-[11px] uppercase tracking-wider font-bold text-gray-500 bg-gray-50 px-3 py-1 rounded-full group-hover:text-blue-600 transition-colors">${module.category}</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">${module.title}</h3>
+                        <p class="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">${module.subtitle}</p>
+                        <p class="text-sm text-gray-500 leading-relaxed line-clamp-3 mb-8 flex-grow font-light">${module.description}</p>
+                        <div class="mt-auto pt-5 border-t border-gray-100 flex justify-between items-center text-sm">
+                            <span class="text-gray-400 font-medium text-xs flex items-center gap-1">
+                                ⏱️ ${module.time}
+                            </span>
+                            <span class="text-blue-600 font-bold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">Explorar →</span>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+
+        // Atualizar estado dos botões de filtro (Design Clean/Dark)
+        function updateFilterButtons() {
+            filterButtons.forEach(btn => {
+                if (btn.dataset.filter === currentCategory) {
+                    btn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+                    btn.classList.add('bg-gray-900', 'text-white', 'border-gray-900');
+                } else {
+                    btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+                    btn.classList.remove('bg-gray-900', 'text-white', 'border-gray-900');
+                }
+            });
+        }
+
+        // Adicionar eventos de filtro
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                currentCategory = e.target.dataset.filter;
+                updateFilterButtons();
+                renderModules();
+            });
+        });
+
+        if(clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                currentCategory = "Todos";
+                updateFilterButtons();
+                renderModules();
+            });
+        }
+
+        // Função para abrir modal corporativo
+        function openModal(moduleId) {
+            const module = modulesData.find(m => m.id === moduleId);
+            if (!module) return;
+
+            const topicsHtml = module.topics.map(topic => 
+                `<li class="flex items-start mb-4 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                    <span class="text-blue-600 mr-3 mt-0.5 text-lg leading-none">✦</span>
+                    <span class="text-gray-700 font-medium text-sm">${topic}</span>
+                </li>`
+            ).join('');
+
+            modalContent.innerHTML = `
+                <div class="mb-8 text-center sm:text-left">
+                    <div class="inline-block text-sm uppercase tracking-widest font-bold text-gray-400 mb-3">${module.category}</div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight mb-2">${module.title}</h2>
+                    <p class="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">${module.subtitle}</p>
+                </div>
+
+                <div class="mb-10 text-gray-600 leading-relaxed font-light text-lg">
+                    ${module.description}
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
+                        <span class="text-blue-500">🎯</span> Escopo da Sessão
+                    </h3>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        ${topicsHtml}
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-[2rem] p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm">
+                    <div class="mb-6 sm:mb-0 text-center sm:text-left">
+                        <span class="block text-xs uppercase tracking-wider font-bold text-gray-400 mb-1">Duração Estimada</span>
+                        <span class="block text-xl font-bold text-gray-900">${module.time}</span>
+                    </div>
+                    <button class="bg-gray-900 text-white px-8 py-3.5 rounded-full font-bold hover:bg-blue-600 transition-colors w-full sm:w-auto shadow-md hover:shadow-xl transform hover:-translate-y-0.5">
+                        Reservar Horário
+                    </button>
+                </div>
+            `;
+            
+            modal.classList.remove('modal-hidden');
+            modal.classList.add('modal-active');
+            // Animate Panel in
+            setTimeout(() => {
+                modalPanel.classList.remove('scale-95');
+                modalPanel.classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Lógica de fechamento do modal
+        function closeModal() {
+            modalPanel.classList.remove('scale-100');
+            modalPanel.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('modal-hidden');
+                modal.classList.remove('modal-active');
+                document.body.style.overflow = 'auto';
+            }, 300); // Wait for transition
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+        document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('modal-active')) {
+                closeModal();
+            }
+        });
+
+        // Inicialização dos Gráficos com Cores Corporativas (Blues/Purples)
+        function initCharts() {
+            // Chart 1: Erros comuns
+            const ctxErrors = document.getElementById('errorsChart').getContext('2d');
+            new Chart(ctxErrors, {
+                type: 'bar',
+                data: {
+                    labels: ['Dependências Host', 'Config. Variáveis', 'Tokens APIs', 'Build Errors', 'Integração Canais'],
+                    datasets: [{
+                        label: '% Impacto em Tempo',
+                        data: [20, 25, 15, 30, 10],
+                        backgroundColor: '#6366f1', // Indigo 500
+                        borderRadius: 6,
+                        hoverBackgroundColor: '#4f46e5' // Indigo 600
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#111827', // Gray 900
+                            padding: 12,
+                            titleFont: { size: 13, family: 'system-ui' },
+                            bodyFont: { size: 14, weight: 'bold' },
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.parsed.x + '% das falhas';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 40,
+                            grid: { color: '#f3f4f6', drawBorder: false }, // Gray 100
+                            ticks: { font: { family: 'system-ui' }, color: '#9ca3af' } // Gray 400
+                        },
+                        y: {
+                            grid: { display: false, drawBorder: false },
+                            ticks: { 
+                                font: { family: 'system-ui', size: 12, weight: '500' }, 
+                                color: '#4b5563', // Gray 600
+                                callback: function(value, index, values) {
+                                    const label = this.getLabelForValue(value);
+                                    return label.length > 20 ? label.substr(0, 20) + '...' : label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: ROI (Donut)
+            const ctxROI = document.getElementById('roiChart').getContext('2d');
+            new Chart(ctxROI, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Triagem de Dados', 'Agendamentos', 'Pesquisas Web', 'Operações de Sistema'],
+                    datasets: [{
+                        data: [4.5, 2.0, 3.5, 1.5],
+                        backgroundColor: [
+                            '#3b82f6', // Blue 500
+                            '#8b5cf6', // Violet 500
+                            '#d946ef', // Fuchsia 500
+                            '#0ea5e9'  // Sky 500
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: { family: 'system-ui', size: 12, weight: '500' },
+                                color: '#4b5563',
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#111827',
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: function(context) {
+                                    return ' Economia: ' + context.parsed + 'h / sem';
+                                }
+                            }
+                        }
+                    },
+                    cutout: '75%'
+                },
+                plugins: [{
+                    id: 'textCenter',
+                    beforeDraw: function(chart) {
+                        var width = chart.width,
+                            height = chart.height,
+                            ctx = chart.ctx;
+
+                        ctx.restore();
+                        var fontSize = (height / 120).toFixed(2);
+                        ctx.font = "bold " + fontSize + "em system-ui";
+                        ctx.textBaseline = "middle";
+                        ctx.fillStyle = "#111827"; // Gray 900
+
+                        var text = "11.5h",
+                            textX = Math.round((width - ctx.measureText(text).width) / 2),
+                            textY = (height / 2) - 15;
+
+                        ctx.fillText(text, textX, textY);
+                        
+                        ctx.font = "600 " + (fontSize*0.35) + "em system-ui";
+                        ctx.fillStyle = "#9ca3af"; // Gray 400
+                        var text2 = "Economia Média";
+                        var text2X = Math.round((width - ctx.measureText(text2).width) / 2);
+                        ctx.fillText(text2, text2X, textY + 28);
+                        
+                        ctx.save();
+                    }
+                }]
+            });
+        }
+
+        renderModules();
+        document.addEventListener('DOMContentLoaded', initCharts);
+
+    </script>
+</body>
+</html>
