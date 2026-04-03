@@ -705,21 +705,43 @@
 <script>
     function handleFormSubmit(event, form) {
         event.preventDefault();
-        var email = form.querySelector('input[name="email"]').value;
-        var btn = form.querySelector('button[type="submit"]');
-        btn.textContent = 'Obrigado!';
-        btn.disabled = true;
-        btn.classList.add('opacity-75', 'cursor-not-allowed');
-        form.querySelector('input[name="email"]').value = '';
+        var p = document.createElement('p');
+        p.textContent = 'Pronto! Você está na lista. Fique de olho no seu email.';
+        p.className = 'text-green-400 font-semibold py-3 text-sm';
+        while (form.firstChild) {
+            form.removeChild(form.firstChild);
+        }
+        form.appendChild(p);
         return false;
     }
 
     function toggleFaq(button) {
-        var answer = button.nextElementSibling;
-        var icon = button.querySelector('.faq-icon');
-        answer.classList.toggle('hidden');
-        icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+        var clickedAnswer = button.nextElementSibling;
+        var clickedIcon = button.querySelector('.faq-icon');
+        var isAlreadyOpen = !clickedAnswer.classList.contains('hidden');
+
+        document.querySelectorAll('.faq-answer').forEach(function (answer) {
+            answer.classList.add('hidden');
+        });
+        document.querySelectorAll('.faq-icon').forEach(function (icon) {
+            icon.textContent = '+';
+        });
+
+        if (!isAlreadyOpen) {
+            clickedAnswer.classList.remove('hidden');
+            clickedIcon.textContent = '−';
+        }
     }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (event) {
+            event.preventDefault();
+            var target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
 </script>
 
 </body>
