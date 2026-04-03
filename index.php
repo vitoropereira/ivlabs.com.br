@@ -250,6 +250,52 @@
     </div>
 </section>
 
+<!-- Section 5: O que você sai com -->
+<section class="py-20 sm:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Headline -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                No final do sábado, você já sai com isso funcionando
+            </h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+                Nada de curso para assistir depois. A proposta é sair com algo real rodando.
+            </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[680px] mx-auto">
+            <!-- Card: Agente pessoal -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl mb-4">🤖</div>
+                <h3 class="text-base font-bold text-gray-900 mb-2">Seu agente pessoal rodando</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Seu próprio assistente de IA configurado numa VPS, pronto para operar 24h por dia, 7 dias por semana.</p>
+            </div>
+
+            <!-- Card: Telegram conectado -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl mb-4">📲</div>
+                <h3 class="text-base font-bold text-gray-900 mb-2">Telegram conectado</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Você conversa com seu assistente direto pelo celular, como se fosse um colega de trabalho sempre disponível.</p>
+            </div>
+
+            <!-- Card: Agenda integrada -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl mb-4">📅</div>
+                <h3 class="text-base font-bold text-gray-900 mb-2">Agenda integrada</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Seu assistente enxerga sua rotina e te ajuda com contexto real — compromissos, prazos e prioridades.</p>
+            </div>
+
+            <!-- Card: 1 automação funcionando -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl mb-4">⚙️</div>
+                <h3 class="text-base font-bold text-gray-900 mb-2">1 automação funcionando</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Pelo menos uma rotina automática prática rodando no seu contexto — briefing, relatório ou monitoramento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Remaining sections -->
 
 </body>
