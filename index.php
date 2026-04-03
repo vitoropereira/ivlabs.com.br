@@ -138,5 +138,31 @@
     </div>
 </section>
 
+<!-- Section 2: Stats Bar -->
+<section class="py-16 bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4">
+            <div class="flex flex-col items-center text-center px-6 py-6">
+                <span class="text-4xl sm:text-5xl font-extrabold text-gray-900">10+</span>
+                <span class="mt-2 text-sm text-gray-500">anos construindo soluções digitais</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-6 py-6 md:border-l border-gray-100">
+                <span class="text-4xl sm:text-5xl font-extrabold text-gray-900">8+</span>
+                <span class="mt-2 text-sm text-gray-500">plataformas SaaS entregues em produção</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-6 py-6 border-t md:border-t-0 md:border-l border-gray-100">
+                <span class="text-4xl sm:text-5xl font-extrabold text-gray-900">2.000+</span>
+                <span class="mt-2 text-sm text-gray-500">clientes atendidos</span>
+            </div>
+            <div class="flex flex-col items-center text-center px-6 py-6 border-t md:border-t-0 md:border-l border-gray-100">
+                <span class="text-4xl sm:text-5xl font-extrabold text-gray-900">200+</span>
+                <span class="mt-2 text-sm text-gray-500">automações implementadas</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Remaining sections -->
+
 </body>
 </html>
