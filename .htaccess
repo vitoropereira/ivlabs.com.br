@@ -1,0 +1,96 @@
+RewriteEngine On
+Options All -Indexes
+
+# Forçar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Forçar www (redireciona ivlabs.com.br → www.ivlabs.com.br)
+# Descomente se quiser forçar www:
+# RewriteCond %{HTTP_HOST} ^ivlabs\.com\.br$ [NC]
+# RewriteRule ^ https://www.ivlabs.com.br%{REQUEST_URI} [L,R=301]
+
+# Forçar sem www (redireciona www.ivlabs.com.br → ivlabs.com.br)
+RewriteCond %{HTTP_HOST} ^www\.ivlabs\.com\.br$ [NC]
+RewriteRule ^ https://ivlabs.com.br%{REQUEST_URI} [L,R=301]
+
+# Ignorar arquivos estáticos que existem
+RewriteCond %{REQUEST_URI} \.(css|js|gif|jpe?g|png|svg|webp|ico|woff2?|mp4|avi|mov|webm)$ [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Redirecionar todas as outras requisições para index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+# Bloquear acesso a arquivos sensíveis
+<FilesMatch “\.(env|md|json|lock|yml|yaml|log|sh|sql)$”>
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acesso a diretórios ocultos (.git, .claude, etc.)
+RedirectMatch 404 /\.
+
+# Headers de segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options “nosniff”
+    Header set X-Frame-Options “SAMEORIGIN”
+    Header set X-XSS-Protection “1; mode=block”
+    Header set Referrer-Policy “strict-origin-when-cross-origin”
+    Header set Permissions-Policy “camera=(), microphone=(), geolocation=()”
+</IfModule>
+
+# Compressão GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Cache de assets estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css “access plus 1 month”
+    ExpiresByType application/javascript “access plus 1 month”
+    ExpiresByType image/jpeg “access plus 1 year”
+    ExpiresByType image/png “access plus 1 year”
+    ExpiresByType image/svg+xml “access plus 1 year”
+    ExpiresByType image/webp “access plus 1 year”
+    ExpiresByType image/x-icon “access plus 1 year”
+    ExpiresByType font/woff2 “access plus 1 year”
+</IfModule>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+<IfModule php8_module>
+   php_flag display_errors Off
+   php_value max_execution_time 60
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 512M
+   php_value post_max_size 516M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path “/var/cpanel/php/sessions/ea-php82”
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+<IfModule lsapi_module>
+   php_flag display_errors Off
+   php_value max_execution_time 60
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 512M
+   php_value post_max_size 516M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path “/var/cpanel/php/sessions/ea-php82”
+   php_value upload_max_filesize 512M
+   php_flag zlib.output_compression Off
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,11 @@
+-- Migration 001: Create leads table
+-- Date: 2026-04-03
+
+CREATE TABLE IF NOT EXISTS leads (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    source VARCHAR(50) NOT NULL DEFAULT 'hero',
+    ip VARCHAR(45) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

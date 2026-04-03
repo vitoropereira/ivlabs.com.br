@@ -675,9 +675,9 @@
                     Construindo soluções digitais com IA para profissionais que querem resultados reais — sem enrolação.
                 </p>
                 <div class="flex items-center gap-4">
-                    <a href="https://instagram.com/ivlabs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">Instagram</a>
-                    <a href="https://linkedin.com/company/ivlabs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">LinkedIn</a>
-                    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">WhatsApp</a>
+                    <a href="https://www.instagram.com/vitorpereirasaas/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">Instagram</a>
+                    <a href="https://www.linkedin.com/in/vitor-onofre-pereira/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">LinkedIn</a>
+                    <a href="https://wa.me/5581996733973" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">WhatsApp</a>
                 </div>
             </div>
 
@@ -705,13 +705,36 @@
 <script>
     function handleFormSubmit(event, form) {
         event.preventDefault();
-        var p = document.createElement('p');
-        p.textContent = 'Pronto! Você está na lista. Fique de olho no seu email.';
-        p.className = 'text-green-400 font-semibold py-3 text-sm';
-        while (form.firstChild) {
-            form.removeChild(form.firstChild);
-        }
-        form.appendChild(p);
+        var email = form.querySelector('input[name="email"]').value.trim();
+        var source = form.id === 'hero-form' ? 'hero' : 'cta';
+        var btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+
+        fetch('/api/lead.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: source })
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            var p = document.createElement('p');
+            if (data.success) {
+                p.textContent = 'Pronto! Você está na lista. Fique de olho no seu email.';
+                p.className = 'text-green-400 font-semibold py-3 text-sm';
+            } else {
+                p.textContent = data.error || 'Erro ao cadastrar. Tente novamente.';
+                p.className = 'text-red-400 font-semibold py-3 text-sm';
+            }
+            while (form.firstChild) { form.removeChild(form.firstChild); }
+            form.appendChild(p);
+        })
+        .catch(function() {
+            btn.disabled = false;
+            btn.textContent = 'Quero participar';
+            alert('Erro de conexão. Tente novamente.');
+        });
+
         return false;
     }
 
