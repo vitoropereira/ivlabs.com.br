@@ -296,6 +296,63 @@
     </div>
 </section>
 
+<!-- Section 6: Casos de uso -->
+<section class="py-20 sm:py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Headline -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                O que seu assistente pode fazer por você
+            </h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+                O objetivo não é só "ter IA". É fazer ela trabalhar por você em rotinas reais.
+            </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
+            <!-- Card: Briefing diário -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100 text-center">
+                <div class="text-4xl mb-4">🌅</div>
+                <h3 class="text-base font-bold text-gray-900 mb-3">Briefing diário</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Todo dia cedo, recebe um resumo da sua agenda, tarefas e prioridades no Telegram.</p>
+            </div>
+
+            <!-- Card: Relatório semanal -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100 text-center">
+                <div class="text-4xl mb-4">📝</div>
+                <h3 class="text-base font-bold text-gray-900 mb-3">Relatório semanal</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Visão organizada do que aconteceu, do que ficou pendente e do que precisa de atenção.</p>
+            </div>
+
+            <!-- Card: Alertas proativos -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100 text-center">
+                <div class="text-4xl mb-4">🚨</div>
+                <h3 class="text-base font-bold text-gray-900 mb-3">Alertas proativos</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Seu agente avisa quando algo importante sai do esperado ou precisa da sua atenção.</p>
+            </div>
+
+            <!-- Card: Apoio nas decisões -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100 text-center">
+                <div class="text-4xl mb-4">🧠</div>
+                <h3 class="text-base font-bold text-gray-900 mb-3">Apoio nas decisões</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Peça opinião, pesquise dados ou organize ideias — direto na conversa, como um sócio disponível 24h.</p>
+            </div>
+        </div>
+
+        <!-- Telegram highlight banner -->
+        <div class="mt-8 bg-gradient-to-r from-blue-50 to-purple-50 rounded-[2rem] p-6 sm:p-8 border border-indigo-100 max-w-3xl mx-auto">
+            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                <div class="text-4xl flex-shrink-0">💬</div>
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Tudo pelo Telegram</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Sem app novo, sem painel complicado. Você manda mensagem e ele responde — simples assim.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Remaining sections -->
 
 </body>
