@@ -208,6 +208,48 @@
     </div>
 </section>
 
+<!-- Section 4: O que trava -->
+<section class="py-20 sm:py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Headline -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                O que normalmente trava quem tenta sozinho
+            </h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+                O problema quase nunca é falta de vontade. É falta de direção, sequência e acompanhamento.
+            </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[680px] mx-auto">
+            <!-- Card: Muito conteúdo -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-xl mb-4">😵</div>
+                <h3 class="text-base font-bold text-gray-900">Muito conteúdo, pouca direção</h3>
+            </div>
+
+            <!-- Card: Medo de quebrar -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-xl mb-4">😰</div>
+                <h3 class="text-base font-bold text-gray-900">Medo de quebrar tudo</h3>
+            </div>
+
+            <!-- Card: IA sem utilidade -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-xl mb-4">🤷</div>
+                <h3 class="text-base font-bold text-gray-900">IA sem utilidade prática</h3>
+            </div>
+
+            <!-- Card: Falta de acompanhamento -->
+            <div class="bg-white rounded-[2rem] p-8 border border-gray-100">
+                <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-xl mb-4">🛑</div>
+                <h3 class="text-base font-bold text-gray-900">Falta de acompanhamento</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Remaining sections -->
 
 </body>
