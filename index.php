@@ -353,7 +353,374 @@
     </div>
 </section>
 
-<!-- Remaining sections -->
+<!-- Section 7: Como funciona -->
+<section id="como-funciona" class="py-20 sm:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Headline -->
+        <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                Como a mentoria funciona
+            </h2>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+                Você entra no sábado para montar seu assistente e continua refinando nas 2 semanas seguintes.
+            </p>
+        </div>
+
+        <!-- Saturday phase label -->
+        <div class="flex items-center gap-4 mb-6">
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">SÁBADO — DIA PRINCIPAL</span>
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="text-xs text-gray-400 whitespace-nowrap">~3h ao vivo</span>
+        </div>
+
+        <!-- Saturday blocks -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <!-- Block 1 -->
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 relative">
+                <span class="absolute top-4 right-4 text-[11px] text-gray-400">50min</span>
+                <div class="text-3xl mb-3">🤖</div>
+                <h3 class="text-base font-bold mb-1">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Seu agente nasce</span>
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Sobe a base, define identidade, sai com o agente rodando.</p>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 relative">
+                <span class="absolute top-4 right-4 text-[11px] text-gray-400">50min</span>
+                <div class="text-3xl mb-3">📲</div>
+                <h3 class="text-base font-bold mb-1">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Conectando ao mundo</span>
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Telegram + Google Agenda. Comandos reais funcionando.</p>
+            </div>
+
+            <!-- Block 3 -->
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 relative">
+                <span class="absolute top-4 right-4 text-[11px] text-gray-400">50min</span>
+                <div class="text-3xl mb-3">⚙️</div>
+                <h3 class="text-base font-bold mb-1">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Automatizando</span>
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Monta uma automação prática baseada na sua rotina real.</p>
+            </div>
+
+            <!-- Block 4 -->
+            <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100 relative">
+                <span class="absolute top-4 right-4 text-[11px] text-gray-400">30min</span>
+                <div class="text-3xl mb-3">🛡️</div>
+                <h3 class="text-base font-bold mb-1">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Blindando</span>
+                </h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Estabilidade, ajustes e plano claro de evolução.</p>
+            </div>
+        </div>
+
+        <!-- Follow-ups phase label -->
+        <div class="flex items-center gap-4 mb-6">
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider whitespace-nowrap">FOLLOW-UPS — SEMANAS SEGUINTES</span>
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="text-xs text-gray-400 whitespace-nowrap">40 min cada</span>
+        </div>
+
+        <!-- Follow-up cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Follow-up 1 -->
+            <div class="bg-gradient-to-br from-gray-50 to-purple-50/50 rounded-2xl p-6 border border-purple-100">
+                <div class="text-3xl mb-3">🔁</div>
+                <h3 class="text-base font-bold text-gray-900 mb-1">Follow-up 1</h3>
+                <p class="text-xs text-gray-400 mb-3">Semana 1 após o sábado</p>
+                <p class="text-sm text-gray-500 leading-relaxed">Corrigir erros do uso real, otimizar respostas e refinar o fluxo principal.</p>
+            </div>
+
+            <!-- Follow-up 2 -->
+            <div class="bg-gradient-to-br from-gray-50 to-purple-50/50 rounded-2xl p-6 border border-purple-100">
+                <div class="text-3xl mb-3">📈</div>
+                <h3 class="text-base font-bold text-gray-900 mb-1">Follow-up 2</h3>
+                <p class="text-xs text-gray-400 mb-3">Semana 2 após o sábado</p>
+                <p class="text-sm text-gray-500 leading-relaxed">Consolidar resultados, melhorar uso prático e ganhar visão de longo prazo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 8: Não precisa programar -->
+<section class="py-20 sm:py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-[640px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-[#0f172a] to-[#1e1b4b] rounded-[2rem] p-10 sm:p-14 text-center relative overflow-hidden">
+            <!-- Glow orbs -->
+            <div class="absolute -top-20 -left-20 w-64 h-64 bg-purple-600/20 rounded-full blur-[80px] pointer-events-none"></div>
+            <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-indigo-600/20 rounded-full blur-[80px] pointer-events-none"></div>
+
+            <div class="relative">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-4">
+                    Você não precisa saber programar
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
+                    Essa mentoria foi desenhada para profissionais não técnicos. Você só precisa do básico para entrar — o resto a gente constrói junto.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="bg-white/[0.06] border border-white/10 rounded-full px-4 py-2 text-gray-300 text-sm">Notebook com internet</span>
+                    <span class="bg-white/[0.06] border border-white/10 rounded-full px-4 py-2 text-gray-300 text-sm">Conta no Telegram</span>
+                    <span class="bg-white/[0.06] border border-white/10 rounded-full px-4 py-2 text-gray-300 text-sm">Conta Google</span>
+                    <span class="bg-white/[0.06] border border-white/10 rounded-full px-4 py-2 text-gray-300 text-sm">Vontade de colocar no ar</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 9: Quem te guia -->
+<section id="mentor" class="py-20 sm:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+            <!-- Left column: Bio card -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 sm:p-10 border border-gray-100">
+                <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full mb-6">Seu mentor</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Vitor Pereira</h2>
+                <p class="text-gray-500 text-sm mb-6">Senior Full-Stack Engineer &bull; CTO &bull; AI Specialist</p>
+                <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                    Essa mentoria não foi criada para impressionar com jargão técnico. Foi criada para pegar quem quer usar IA de forma séria — e colocar isso de pé com clareza, estrutura e acompanhamento.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="text-indigo-500 mt-0.5">&#10022;</span>
+                        10+ anos construindo soluções digitais
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="text-indigo-500 mt-0.5">&#10022;</span>
+                        8+ plataformas SaaS entregues do zero à produção
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="text-indigo-500 mt-0.5">&#10022;</span>
+                        2.000+ clientes atendidos
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="text-indigo-500 mt-0.5">&#10022;</span>
+                        200+ automações implementadas
+                    </li>
+                    <li class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="text-indigo-500 mt-0.5">&#10022;</span>
+                        CTO desde 2015 — I.V. Tecnologias Web
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right column: 2 stacked cards -->
+            <div class="flex flex-col gap-6">
+                <!-- Gradient card -->
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-[2rem] p-8 sm:p-10 text-white">
+                    <p class="text-sm font-semibold text-white/70 mb-4">O foco aqui é simples:</p>
+                    <p class="text-xl sm:text-2xl font-bold leading-snug">
+                        "Você não sair dizendo 'entendi a ideia'. Você sair dizendo: 'está funcionando no meu celular.'"
+                    </p>
+                </div>
+
+                <!-- Products card -->
+                <div class="bg-gray-50 rounded-[2rem] p-8 sm:p-10 border border-gray-100">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-5">Alguns produtos do Vitor</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">AjudaJá</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">SGCM</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">4trip</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">ChatMatrix</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">DataClarity IA</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">ClearSeg</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">Calvino</span>
+                        <span class="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-sm text-gray-700 font-medium">Auralooks</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Section 10: FAQ -->
+<section id="faq" class="py-20 sm:py-24 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight mb-4">
+                Perguntas frequentes
+            </h2>
+            <p class="text-lg text-gray-500">
+                O que normalmente as pessoas querem saber antes de entrar.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">Preciso saber programar?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">Não. A mentoria foi desenhada justamente para pessoas não técnicas. Você precisa de um notebook com internet, conta no Telegram e conta Google.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">Eu saio com algo funcionando mesmo?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">Sim. A proposta é que você termine o sábado com seu assistente rodando no Telegram, conectado à sua agenda e com pelo menos uma automação ativa.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">Serve só para quem tem empresa?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">Não. Serve para freelancers, criadores de conteúdo e qualquer pessoa que queira mais produtividade com IA no dia a dia.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">E se eu travar depois do sábado?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">Você terá 2 encontros de follow-up nas semanas seguintes para corrigir, ajustar e evoluir o que foi montado.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">Quanto custa manter o agente rodando?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">O custo de infraestrutura (VPS + API de IA) fica em torno de R$ 50–100/mês dependendo do uso. Explicamos tudo durante a mentoria.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                <button class="faq-toggle w-full flex items-center justify-between px-6 py-5 text-left" onclick="toggleFaq(this)">
+                    <span class="text-sm font-semibold text-gray-900">É presencial ou online?</span>
+                    <span class="faq-icon text-gray-400 text-xl font-light ml-4 flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5">
+                    <p class="text-sm text-gray-500 leading-relaxed">Os encontros são ao vivo e online. Você participa do seu computador, de qualquer lugar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 11: CTA Final -->
+<section id="cta-final" class="py-20 sm:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-[640px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-[#0b1120] rounded-[2rem] p-10 sm:p-14 relative overflow-hidden">
+            <!-- Glow orb -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-gradient-to-b from-blue-500/20 to-purple-600/20 blur-[80px] pointer-events-none"></div>
+
+            <div class="relative text-center">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-5">
+                    Se você quer parar de só testar IA e começar a
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"> usar IA de verdade</span>,
+                    essa mentoria é para você.
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8">
+                    Em vez de continuar perdido entre ferramentas e tutoriais, você sai com um assistente pessoal funcionando no seu celular e um caminho claro para evoluir.
+                </p>
+
+                <!-- Form -->
+                <form id="cta-form" onsubmit="return handleFormSubmit(event, this)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-5">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="seu@email.com"
+                        required
+                        class="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                    >
+                    <button
+                        type="submit"
+                        class="px-6 py-3.5 rounded-full font-semibold text-white text-sm bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg whitespace-nowrap"
+                    >
+                        Entrar na lista
+                    </button>
+                </form>
+
+                <p class="text-gray-500 text-xs">Vagas limitadas por turma. Sem spam, só atualizações da mentoria.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white pt-16 pb-10 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <!-- Left: Brand -->
+            <div>
+                <a href="#inicio" class="inline-flex items-center gap-2 font-bold text-xl text-gray-900 mb-4">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">&#10022;</span>
+                    IV Labs
+                </a>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-xs mb-6">
+                    Construindo soluções digitais com IA para profissionais que querem resultados reais — sem enrolação.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="https://instagram.com/ivlabs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">Instagram</a>
+                    <a href="https://linkedin.com/company/ivlabs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">LinkedIn</a>
+                    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-700 transition-colors text-sm">WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Right: CTA card -->
+            <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 flex flex-col justify-between">
+                <p class="text-lg font-bold text-gray-900 mb-4">Pronto para montar o seu?</p>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Entre na lista e seja avisado quando a próxima turma abrir.</p>
+                <a href="#cta-final" class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all shadow-sm">
+                    Entrar na lista
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="border-t border-gray-100 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-gray-400 text-xs">&copy; 2026 IV Labs. Todos os direitos reservados.</p>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-gray-400 hover:text-gray-600 text-xs transition-colors">Termos de Uso</a>
+                <a href="#" class="text-gray-400 hover:text-gray-600 text-xs transition-colors">Privacidade</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function handleFormSubmit(event, form) {
+        event.preventDefault();
+        var email = form.querySelector('input[name="email"]').value;
+        var btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Obrigado!';
+        btn.disabled = true;
+        btn.classList.add('opacity-75', 'cursor-not-allowed');
+        form.querySelector('input[name="email"]').value = '';
+        return false;
+    }
+
+    function toggleFaq(button) {
+        var answer = button.nextElementSibling;
+        var icon = button.querySelector('.faq-icon');
+        answer.classList.toggle('hidden');
+        icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+    }
+</script>
 
 </body>
 </html>
